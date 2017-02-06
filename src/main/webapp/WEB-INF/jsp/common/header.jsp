@@ -4,8 +4,8 @@
 <html>
 <head>
 	<title>Axxam Tmusni</title>
+	<meta charset="utf-8" /> 
 	<!-- Adds bootstrap library -->
-	
 	<c:url value="/css/bootstrap.min.css" var="bootstrapUrl" />
 	<link rel="stylesheet" type="text/css" href="${bootstrapUrl}">
 	
@@ -15,9 +15,11 @@
 </head>
 
 	<body>
-		<div id="heading">
-			<h1 class="main-title">Axxam Tmusni</h1>
-			<h2 class="main-title"> <small>Where children learn and grow</small></h2>
+		<div class="jumbotron" id="heading">
+			<div class="container">
+				<h1 class="main-title">Axxam Tmusni</h1>
+				<h2 class="main-title"> Where the world's children learn and grow</h2>
+			</div>
 		</div>
 		<div id="navigation-bar">
 			<ul class="nav navbar-nav">

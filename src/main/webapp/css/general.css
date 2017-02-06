@@ -1,6 +1,10 @@
 #heading {
-	background-color: yellow;
-    text-align: center;
+	background-image: url("../photos/globe.jpg");
+	background-position: bottom;
+	text-align: center;
+    color: white;
+    margin-bottom: 0px;
+    text-shadow: 2px 2px black;
 }
 
 #navigation-bar {
@@ -18,5 +22,9 @@
 .main-title {
     margin-bottom: 0px;
     margin-top: 0px;
+    
 }
 
+.jumbotron {
+	min-height: 600px;
+}
