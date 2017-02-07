@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
 	
 	@RequestMapping(path="/", method=RequestMethod.GET)
+	String goToHomePage() {
+		return "home";
+	}
+	
+	@RequestMapping(path="/AdminLogin", method=RequestMethod.GET)
 	String index() {
-		return "index";
+		return "adminLogin";
 	}
 
 }

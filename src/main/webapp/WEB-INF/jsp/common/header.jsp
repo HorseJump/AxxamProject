@@ -28,8 +28,10 @@
 				<c:url value="/about" var="aboutURL"/>
 				<li><a href="${aboutURL}">About Us</a></li>
 				<c:url value="/login" var="loginURL"/>
-				<li><a href="${loginURL}">Login</a></li>
-				<c:url value="/signUp" var="signUpURL"/>
-				<li><a href="${signUpURL}">Sign Up</a></li>
+				<li><a href="${loginURL}">User Login</a></li>
 			</ul>
+		</div>
+		<div id="adminLink">
+			<c:url value="/AdminLogin" var="adminLoginURL"/>
+			<a href="${adminLoginURL}">Admin Login</a>
 		</div>

@@ -7,8 +7,32 @@
     text-shadow: 2px 2px black;
 }
 
-#navigation-bar {
-	
+#footer {
+	text-align: center;
+	margin-top: 100px;
+}
+
+#home-header {
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+#adminLink {
+	text-align: right;
+	margin-top: 15px;
+}
+
+.content-divs {
+	border-style: solid;
+	border-radius: 15px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.content-divs p {
+	padding-left: 50px;
+	padding-right: 50px;
 }
 
 .mainDiv {
@@ -23,6 +47,10 @@
     margin-bottom: 0px;
     margin-top: 0px;
     
+}
+
+.column-title-center {
+	text-align: center;
 }
 
 .jumbotron {
