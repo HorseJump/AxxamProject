@@ -15,6 +15,21 @@
 	<link rel="stylesheet" type="text/css" href="${cssURL}">
 </head>
 	<body>
-		<h1>This is the Admin Login page!</h1>
+		<div>
+			<c:url value="/" var="homeURL"/>
+			<a href="${homeURL}">Return to Homepage</a>
+		</div>
+		<c:url value="/AdminLogin" var="formAction"/>
+		<form id ="adminForm" method="POST" action="${formAction}">
+			<div id="loginForms">
+				<h2>Admin Login</h2>
+				<label for="adminUsername">Username:</label>
+				<input type="text" id="adminUsername" name="adminUsername" placeholder="Username"/>
+				<br>
+				<label for="adminPassword">Password:</label>
+				<input type="text" id="adminPassword" name="adminPassword" placeholder="Password"/>
+				<button type="submit" id="adminLoginButton" class="btn btn-primary">Login</button>
+			</div>
+		</form>
 	</body>
 </html>
