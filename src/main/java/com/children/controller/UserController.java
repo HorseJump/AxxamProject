@@ -40,8 +40,11 @@ public class UserController {
 		
 		boolean isValidAdminLogin = adminDao.confirmAdminLogin(adminUsername, adminPassword);
 		if(isValidAdminLogin) {
-			//session.invalidate();
-			session.setAttribute("currentUser", adminUsername);
+			if(session.getAttribute("currentUser") != null) {
+				session.invalidate();
+			}
+			AdminUser admin = new AdminUser(adminDao.getAdminUserId(adminUsername), adminUsername);
+			session.setAttribute("currentUser", admin);
 			return "redirect:/AdminDashboard";
 		} else {
 			return "redirect:/AdminLogin";
@@ -49,10 +52,11 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="/AdminDashboard", method=RequestMethod.GET)
-	public String goToAdminDashboard(HttpSession session) {
+	public String goToAdminDashboard(HttpSession session, ModelMap model) {
 		if(session.getAttribute("currentUser") == null) {
 			return "redirect:/AdminLogin";
 		} else {
+			model.put("admin", session.getAttribute("currentUser"));
 			return "adminDashboard";
 		}
 	}

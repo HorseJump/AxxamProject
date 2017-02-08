@@ -28,4 +28,15 @@ private JdbcTemplate jdbcTemplate;
 		}
 	}
 
+	public Long getAdminUserId(String username) {
+		String sqlSearchForUserId = "SELECT adminUser_id From admin_users Where adminUsername = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchForUserId, username);
+		if(results.next()) {
+			Long userId = results.getLong("adminUser_id");
+			return userId;
+		} else {
+			return null;
+		}
+	}
+
 }
