@@ -40,9 +40,6 @@ public class UserController {
 		
 		boolean isValidAdminLogin = adminDao.confirmAdminLogin(adminUsername, adminPassword);
 		if(isValidAdminLogin) {
-			if(session.getAttribute("currentUser") != null) {
-				session.invalidate();
-			}
 			AdminUser admin = new AdminUser(adminDao.getAdminUserId(adminUsername), adminUsername);
 			session.setAttribute("currentUser", admin);
 			return "redirect:/AdminDashboard";
