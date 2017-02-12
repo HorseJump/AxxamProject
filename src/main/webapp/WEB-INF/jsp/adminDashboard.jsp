@@ -12,23 +12,25 @@
 	<!-- Adds css library for common pages -->
 	<c:url value="/css/adminDashboard.css" var="cssURL"/>
 	<link rel="stylesheet" type="text/css" href="${cssURL}">
+	
+	<!-- Adds AJAX -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+	<script src="http://malsup.github.com/jquery.form.js"></script> 
+	<script src="js/dashboard.js"></script>
 </head>
 	<body>
-		Hello, ${admin.username}!
+		Hello, <c:out value="${admin.username}"/>!
 		
 		<h1>Your Dashboard</h1>
 		
 		<div class="dashboard-section">
-			<h2>Create new tutorial</h2>
+			<h2>Upload files</h2>
 			<div>
-				<form method="POST" action="uploadFile" enctype="multipart/form-data">
-		File to upload: <input type="file" name="file">
- 
-		Name: <input type="text" name="name">
- 
- 
-		<input type="submit" value="Upload"> Press here to upload the file!
-	</form>	
+				<form method="POST" action="uploadFile" enctype="multipart/form-data" id="myForm">
+					File to upload: <input type="file" name="file">
+					Name: <input type="text" name="name" placeholder="File Name">
+					<input type="submit" value="Upload">
+				</form>
 			</div>
 		</div>
 		<div class="dashboard-section">

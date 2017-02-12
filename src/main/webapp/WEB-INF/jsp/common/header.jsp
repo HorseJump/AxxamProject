@@ -5,6 +5,7 @@
 <head>
 	<title>Axxam Tmusni</title>
 	<meta charset="utf-8" /> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Adds bootstrap library -->
 	<c:url value="/css/bootstrap.min.css" var="bootstrapUrl" />
 	<link rel="stylesheet" type="text/css" href="${bootstrapUrl}">
@@ -12,6 +13,8 @@
 	<!-- Adds css library for common pages -->
 	<c:url value="/css/general.css" var="cssURL"/>
 	<link rel="stylesheet" type="text/css" href="${cssURL}">
+	<!-- Add AJAX -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
 </head>
 
 	<body>

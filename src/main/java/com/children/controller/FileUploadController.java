@@ -4,6 +4,8 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,12 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.children.model.AdminUser;
 
 /**
  * Handles requests for the application file upload requests
  */
 @Controller
+@SessionAttributes("currentUser")
 public class FileUploadController {
 
 	private static final Logger logger = LoggerFactory
@@ -26,17 +32,18 @@ public class FileUploadController {
 	 * Upload single file using Spring Controller
 	 */
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-	public @ResponseBody
+	public 
 	String uploadFileHandler(@RequestParam("name") String name,
-			@RequestParam("file") MultipartFile file) {
+			@RequestParam("file") MultipartFile file, HttpSession session) {
 
 		if (!file.isEmpty()) {
 			try {
 				byte[] bytes = file.getBytes();
 
 				// Creating the directory to store file
-				String rootPath = System.getProperty("catalina.home");
-				File dir = new File(rootPath + File.separator + "tmpFiles");
+				String rootPath = "C:/Users/CJ/workspace/AxxamTmusni/uploads";
+				AdminUser user = (AdminUser) session.getAttribute("currentUser");
+				File dir = new File(rootPath + File.separator + user.getUsername());
 				if (!dir.exists())
 					dir.mkdirs();
 
@@ -51,7 +58,7 @@ public class FileUploadController {
 				logger.info("Server File Location="
 						+ serverFile.getAbsolutePath());
 
-				return "You successfully uploaded file=" + name;
+				return "redirect:/AdminDashboard";
 			} catch (Exception e) {
 				return "You failed to upload " + name + " => " + e.getMessage();
 			}
