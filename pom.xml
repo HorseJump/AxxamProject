@@ -124,6 +124,14 @@
 		    <artifactId>slf4j-api</artifactId>
 		    <version>1.7.22</version>
 		</dependency>
+		
+		<!-- For embedding videos -->
+		
+		<dependency>
+    		<groupId>eu.michael-simons</groupId>
+    		<artifactId>java-oembed</artifactId>
+    		<version>0.5.8</version>
+		</dependency>
 	</dependencies>
   <build>
     <finalName>elearning</finalName>

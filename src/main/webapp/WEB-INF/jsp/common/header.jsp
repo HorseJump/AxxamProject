@@ -21,7 +21,7 @@
 		<div class="jumbotron" id="heading">
 			<div class="container">
 				<h1 class="main-title">Axxam Tmusni</h1>
-				<h2 class="main-title"> Where the world's children learn and grow</h2>
+				<h2 class="main-title">Where the world's children learn and grow</h2>
 			</div>
 		</div>
 		<div id="navigation-bar">

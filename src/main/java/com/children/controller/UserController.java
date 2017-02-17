@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.children.model.AdminDao;
 import com.children.model.AdminUser;
+import com.children.model.JdbcAdminDao;
 
 @Controller
 @SessionAttributes("currentUser")
@@ -50,6 +51,7 @@ public class UserController {
 	
 	@RequestMapping(path="/AdminDashboard", method=RequestMethod.GET)
 	public String goToAdminDashboard(HttpSession session, ModelMap model) {
+		
 		if(session.getAttribute("currentUser") == null) {
 			return "redirect:/AdminLogin";
 		} else {
