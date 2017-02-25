@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="${cssURL}">
 	
 	<!-- Adds AJAX -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
 	<script src="http://malsup.github.com/jquery.form.js"></script> 
 	
 	<!-- Adds JS file -->
@@ -22,10 +22,6 @@
 </head>
 	<body>
 		<h1>Create new topic</h1>
-		<select name="topicIds" id="topicChoice">
-			<c:forEach var="topic" items="${topics}">
-				<option value="${topic.topicId}">${topic.topicName} and ${topic.topicDescription}</option>
-			</c:forEach>
-		</select>
+		
 	</body>
 </html>

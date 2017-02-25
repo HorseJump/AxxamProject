@@ -9,5 +9,7 @@ public interface TutorialDao {
 	public void saveTopicToDatabase(Topic topic);
 	
 	public List<Topic> getAllTopics();
+	
+	public List<Subtopic> getRelatedSubtopics(Long topicId);
 
 }

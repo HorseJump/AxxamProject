@@ -9,6 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.children.model.AdminDao;
@@ -33,8 +36,6 @@ public class TutorialController {
 	@RequestMapping(path="/CreateNewTopic", method=RequestMethod.GET)
 	public String createNewTopic(HttpSession session, ModelMap model) {
 		if(session.getAttribute("currentUser") != null) {
-			ArrayList<Topic> topics = (ArrayList<Topic>) tutorialDao.getAllTopics();
-			model.put("topics", topics);
 			return "createNewTopic";
 		} else {
 			return "redirect:/AdminLogin";
@@ -42,8 +43,10 @@ public class TutorialController {
 	}
 	
 	@RequestMapping(path="/CreateTutorial", method=RequestMethod.GET)
-	public String createTutorial(HttpSession session) {
+	public String createTutorial(HttpSession session, ModelMap model) {
 		if(session.getAttribute("currentUser") != null) {
+			ArrayList<Topic> topics = (ArrayList<Topic>) tutorialDao.getAllTopics();
+			model.put("topics", topics);
 			return "createTutorial";
 		} else {
 			return "redirect:/AdminLogin";
@@ -55,9 +58,17 @@ public class TutorialController {
 			Topic topic,
 			Subtopic subtopic, 
 			Tutorial tutorial) {
-		
-		
 		return "viewTutorial";
+	}
+	
+	@RequestMapping(path="/getSubtopics", method=RequestMethod.POST)
+	public @ResponseBody
+	ArrayList<Subtopic> getSubtopics(HttpSession session, 
+			@RequestParam String topicId, ModelMap model) {
+		ArrayList<Subtopic> subtopics = (ArrayList<Subtopic>) tutorialDao.getRelatedSubtopics(Long.parseLong(topicId));
+		model.put("subtopics", subtopics);
+		System.out.println("success");
+		return subtopics;
 	}
 
 }

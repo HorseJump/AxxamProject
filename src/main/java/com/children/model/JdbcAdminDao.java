@@ -23,7 +23,7 @@ private JdbcTemplate jdbcTemplate;
 		if (results.next()) {
 			String storedPassword = results.getString("adminPassword");
 			return storedPassword.equals(password);
-		}else {
+		} else {
 			return false;
 		}
 	}

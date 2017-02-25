@@ -15,13 +15,13 @@ Insert Into admin_users (adminUsername, adminPassword) Values ('admin', 'admin')
 Create table Topics (
 	topic_id serial PRIMARY KEY,
 	topic_name varchar(20) not null,
-	topic_description varchar(20)
+	topic_description varchar(100)
 );
 
 Create table Subtopics (
 	subtopic_id serial PRIMARY KEY,
 	subtopic_name varchar(20) not null,
-	subtopic_description varchar(20)
+	subtopic_description varchar(40)
 );
 
 Create table Topic_Subtopic (
@@ -49,4 +49,16 @@ ALTER TABLE tutorial
 ADD FOREIGN KEY (subtopic_id)
 REFERENCES subtopics(subtopic_id);
 
-Insert into topics (topic_name, topic_description) Values ('Spanish', 'The spanish language');
+Insert into topics (topic_name, topic_description) Values ('Languages', 'Learn all the world''s languages');
+Insert into topics (topic_name, topic_description) Values ('Health and Fitness', 'Stay healthy and fit');
+Insert into subtopics (subtopic_name, subtopic_description) Values ('Spanish', 'The Spanish Language');
+Insert into subtopics (subtopic_name, subtopic_description) Values ('German', 'The German Language');
+Insert into subtopics (subtopic_name, subtopic_description) Values ('Exercise', 'Multiple ways to exercise');
+Insert into subtopics (subtopic_name, subtopic_description) Values ('Eating Well', 'Eating the right foods');
+Insert into topic_subtopic (topic_id, subtopic_id) Values (1, 1);
+Insert into topic_subtopic (topic_id, subtopic_id) Values (1, 2);
+Insert into topic_subtopic (topic_id, subtopic_id) Values (2, 3);
+Insert into topic_subtopic (topic_id, subtopic_id) Values (2, 4);
+
+SELECT sub.subtopic_id, sub.subtopic_name, sub.subtopic_description From subtopics sub 
+Join topic_subtopic ts On ts.subtopic_id = sub.subtopic_id Where topic_id = 2;

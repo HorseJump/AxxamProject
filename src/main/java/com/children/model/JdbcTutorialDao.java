@@ -48,4 +48,18 @@ public class JdbcTutorialDao implements TutorialDao{
 		
 	}
 
+	@Override
+	public List<Subtopic> getRelatedSubtopics(Long topicId) {
+		String sqlGetSubtopics = "SELECT sub.subtopic_id, sub.subtopic_name, sub.subtopic_description From subtopics sub"
+				+ " Join topic_subtopic ts On ts.subtopic_id = sub.subtopic_id Where topic_id = ?;";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetSubtopics, topicId);
+		List<Subtopic> subtopics = new ArrayList<>();
+		while(results.next()) {
+			Subtopic subtopic = new Subtopic(results.getLong("subtopic_id"), results.getString("subtopic_name"),
+					results.getString("subtopic_description"));
+			subtopics.add(subtopic);
+		}
+		return subtopics;
+	}
+
 }
