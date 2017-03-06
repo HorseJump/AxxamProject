@@ -33,9 +33,17 @@ public class TutorialController {
 		this.tutorialDao = tutorialDao;
 	}
 	
+	public boolean sessionIsValid(HttpSession session) {
+		if(session.getAttribute("currentUser") != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	@RequestMapping(path="/CreateNewTopic", method=RequestMethod.GET)
 	public String createNewTopic(HttpSession session, ModelMap model) {
-		if(session.getAttribute("currentUser") != null) {
+		if(sessionIsValid(session)) {
 			return "createNewTopic";
 		} else {
 			return "redirect:/AdminLogin";
@@ -44,7 +52,7 @@ public class TutorialController {
 	
 	@RequestMapping(path="/CreateTutorial", method=RequestMethod.GET)
 	public String createTutorial(HttpSession session, ModelMap model) {
-		if(session.getAttribute("currentUser") != null) {
+		if(sessionIsValid(session)) {
 			ArrayList<Topic> topics = (ArrayList<Topic>) tutorialDao.getAllTopics();
 			model.put("topics", topics);
 			return "createTutorial";
@@ -54,21 +62,22 @@ public class TutorialController {
 	}
 	
 	@RequestMapping(path="/CreateTutorial", method=RequestMethod.POST)
-	public String viewSelectedTutorial(HttpSession session, 
-			Topic topic,
-			Subtopic subtopic, 
-			Tutorial tutorial) {
+	public String viewSelectedTutorial(HttpSession session, Tutorial tutorial) {
 		return "viewTutorial";
 	}
 	
 	@RequestMapping(path="/getSubtopics", method=RequestMethod.POST)
 	public @ResponseBody
 	ArrayList<Subtopic> getSubtopics(HttpSession session, 
-			@RequestParam String topicId, ModelMap model) {
-		ArrayList<Subtopic> subtopics = (ArrayList<Subtopic>) tutorialDao.getRelatedSubtopics(Long.parseLong(topicId));
-		model.put("subtopics", subtopics);
-		System.out.println("success");
+			@RequestParam Long topicId) {
+		ArrayList<Subtopic> subtopics = (ArrayList<Subtopic>) tutorialDao.getRelatedSubtopics(topicId);
 		return subtopics;
+	}
+	
+	@RequestMapping(path="/saveTutorial", method=RequestMethod.POST)
+	public String saveTutorial(HttpSession session, Tutorial tutorial) {
+		
+		return "viewTutorial";
 	}
 
 }

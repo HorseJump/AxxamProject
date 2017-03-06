@@ -27,7 +27,7 @@
 				<input type="text" id="adminUsername" name="adminUsername" placeholder="Username"/>
 				<br>
 				<label for="adminPassword">Password:</label>
-				<input type="text" id="adminPassword" name="adminPassword" placeholder="Password"/>
+				<input type="password" id="adminPassword" name="adminPassword" placeholder="Password"/>
 				<button type="submit" id="adminLoginButton" class="btn btn-primary">Login</button>
 			</div>
 		</form>

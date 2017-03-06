@@ -14,4 +14,19 @@ $(document).ready(function() {
 				$("#subtopicChoice").empty();
 			}
 		});
+		
+//		$("#addContent").click(function() {
+//			$(".content").append('<textarea name="tutorialContent" class="contentBox"></textarea>');
+//			$(".content").append('<button type="button" class="btn btn-danger" id="deleteContent">Delete -</button>');
+//		});
+		
+//		$("#addVideo").click(function() {
+//			$(".content").append('<input type="text" name="tutorialContent" class="videoBox">');
+//			$(".content").append('<button type="button" class="btn btn-danger" id="deleteContent">Delete -</button>');
+//		});
+		
+//		$(".content").on('click', '#deleteContent', function() {
+//			$(this).prev().remove();
+//			$(this).remove();
+//		});
 	});

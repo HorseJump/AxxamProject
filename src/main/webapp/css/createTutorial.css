@@ -1,3 +1,20 @@
+#deleteContent {
+	display: block;
+	margin: auto;
+	margin-bottom: 5px;
+}
+
 .center-tutorial {
 	text-align: center;
+}
+
+.contentBox {
+	height: 200px;
+	width: 1500px;
+	
+}
+
+.videoBox {
+	width: 1000px;
+	margin-bottom: 5px;
 }

@@ -22,18 +22,32 @@
 </head>
 	<body>
 	<div class="center-tutorial">
-		<h2>Choose a Topic</h2>
-		<c:url value="/getSubtopics" var="getSubs"/>
-		
-			<select name="topicId" id="topicChoice">
-				<option value="None" selected>Select a Topic</option>
-				<c:forEach var="topic" items="${topics}">
-					<option value="${topic.topicId}"><c:out value="${topic.topicName}"></c:out></option>
-				</c:forEach>
-			</select>
-		<h2>Choose a Subtopic</h2>
-		<select name="subtopicId" id="subtopicChoice">
-		</select><br>
+		<c:url value="/saveTutorial" var="tutorialSubmit"/>
+		<form action="tutorialSubmit" method="POST">
+			<h2>Tutorial Name</h2>
+				<input type="text" name="tutorialName" required>
+			
+			<h2>Choose a Topic</h2>
+				<select name="topicId" id="topicChoice" required>
+					<option value="None" selected>Select a Topic</option>
+					<c:forEach var="topic" items="${topics}">
+						<option value="${topic.topicId}"><c:out value="${topic.topicName}"></c:out></option>
+					</c:forEach>
+				</select>
+			<h2>Choose a Subtopic</h2>
+			<select name="subtopicId" id="subtopicChoice" required>
+				<!-- JavaScript generates options here after topic is chosen -->
+			</select><br>
+			
+			<h2>Content</h2>
+			<div class="content">
+				<!-- Add content with Javascript here -->
+				<textarea name="tutorialContent" class="contentBox"></textarea>
+			</div>
+				<!-- <button type="button" class="btn btn-success" id="addContent">Add Written Content +</button>
+				<button type="button" class="btn btn-success" id="addVideo">Embed Video +</button> -->
+				<input type="submit" value="Save Tutorial"/>
+		</form>
 	</div>
 	</body>
 </html>
