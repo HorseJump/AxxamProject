@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class JdbcTutorialDao implements TutorialDao{
@@ -42,9 +43,13 @@ public class JdbcTutorialDao implements TutorialDao{
 			jdbcTemplate.update(sqlInsertTopic, topic.getTopicName(), topic.getTopicDescription());
 		}
 	}
-
-	//@Override
-	public void saveTutorialToDatabase() {
+	
+	@Override
+	@Transactional
+	public void saveTutorialToDatabase(Tutorial tutorial) {
+		String sqlSaveTutorial = "INSERT INTO tutorial (subtopic_id, tutorial_name, tutorial_info) VALUES (?, ?, ?)";
+		//String sqlGetNextTutorialId = "Select Max"
+		jdbcTemplate.update(sqlSaveTutorial, tutorial.getSubtopicId(), tutorial.getTutorialName(), tutorial.getTutorialContent());
 		
 	}
 

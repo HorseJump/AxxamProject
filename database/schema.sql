@@ -60,5 +60,5 @@ Insert into topic_subtopic (topic_id, subtopic_id) Values (1, 2);
 Insert into topic_subtopic (topic_id, subtopic_id) Values (2, 3);
 Insert into topic_subtopic (topic_id, subtopic_id) Values (2, 4);
 
-SELECT sub.subtopic_id, sub.subtopic_name, sub.subtopic_description From subtopics sub 
-Join topic_subtopic ts On ts.subtopic_id = sub.subtopic_id Where topic_id = 2;
+-- Insert into tutorial (subtopic_id, tutorial_name, tutorial_info) Values (1, 'test', 'test');
+Select * From tutorial;

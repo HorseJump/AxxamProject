@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface TutorialDao {
 	
-	public void saveTutorialToDatabase();
+	public void saveTutorialToDatabase(Tutorial tutorial);
 	
 	public void saveTopicToDatabase(Topic topic);
 	

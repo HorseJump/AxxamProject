@@ -76,8 +76,8 @@ public class TutorialController {
 	
 	@RequestMapping(path="/saveTutorial", method=RequestMethod.POST)
 	public String saveTutorial(HttpSession session, Tutorial tutorial) {
-		
-		return "viewTutorial";
+		tutorialDao.saveTutorialToDatabase(tutorial);
+		return "redirect:/AdminDashboard";
 	}
 
 }

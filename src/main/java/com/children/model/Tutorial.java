@@ -4,7 +4,9 @@ public class Tutorial {
 	
 	private Long tutorialId;
 	private String tutorialName;
-	private String tutorialDescription;
+	private String tutorialContent;
+	private Long topicId;
+	private Long subtopicId;
 	
 	public Long getTutorialId() {
 		return tutorialId;
@@ -22,18 +24,28 @@ public class Tutorial {
 		this.tutorialName = tutorialName;
 	}
 
-	public String getTutorialDescription() {
-		return tutorialDescription;
+	public String getTutorialContent() {
+		return tutorialContent;
 	}
 
-	public void setTutorialDescription(String tutorialDescription) {
-		this.tutorialDescription = tutorialDescription;
+	public void setTutorialContent(String tutorialContent) {
+		this.tutorialContent = tutorialContent;
 	}
 
-	public Tutorial(Long tutorialId, String tutorialName, String tutorialDescription) {
-		this.tutorialId = tutorialId;
-		this.tutorialName = tutorialName;
-		this.tutorialDescription = tutorialDescription;
+	public Long getTopicId() {
+		return topicId;
+	}
+
+	public void setTopicId(Long topicId) {
+		this.topicId = topicId;
+	}
+
+	public Long getSubtopicId() {
+		return subtopicId;
+	}
+
+	public void setSubtopicId(Long subtopicId) {
+		this.subtopicId = subtopicId;
 	}
 
 }

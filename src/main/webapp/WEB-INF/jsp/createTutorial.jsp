@@ -23,7 +23,7 @@
 	<body>
 	<div class="center-tutorial">
 		<c:url value="/saveTutorial" var="tutorialSubmit"/>
-		<form action="tutorialSubmit" method="POST">
+		<form action="${tutorialSubmit}" method="POST">
 			<h2>Tutorial Name</h2>
 				<input type="text" name="tutorialName" required>
 			
