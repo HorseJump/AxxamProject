@@ -11,5 +11,7 @@ public interface TutorialDao {
 	public List<Topic> getAllTopics();
 	
 	public List<Subtopic> getRelatedSubtopics(Long topicId);
+	
+	public Tutorial getAllTutorials();
 
 }

@@ -48,7 +48,6 @@ public class JdbcTutorialDao implements TutorialDao{
 	@Transactional
 	public void saveTutorialToDatabase(Tutorial tutorial) {
 		String sqlSaveTutorial = "INSERT INTO tutorial (subtopic_id, tutorial_name, tutorial_info) VALUES (?, ?, ?)";
-		//String sqlGetNextTutorialId = "Select Max"
 		jdbcTemplate.update(sqlSaveTutorial, tutorial.getSubtopicId(), tutorial.getTutorialName(), tutorial.getTutorialContent());
 		
 	}
@@ -67,4 +66,9 @@ public class JdbcTutorialDao implements TutorialDao{
 		return subtopics;
 	}
 
+	@Override
+	public Tutorial getAllTutorials() {
+		String sqlGetAllTopics = "SELECT tutorial_id, subtopic_name,  From tutorial";
+		return null;
+	}
 }

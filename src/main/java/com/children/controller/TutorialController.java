@@ -79,5 +79,17 @@ public class TutorialController {
 		tutorialDao.saveTutorialToDatabase(tutorial);
 		return "redirect:/AdminDashboard";
 	}
+	
+	@RequestMapping(path="/TutorialDashboard", method=RequestMethod.GET)
+	public String tutorialDashboard() {
+		
+		return "tutorialDashboard";
+	}
+	
+	@RequestMapping(path="/ViewTutorial", method=RequestMethod.GET)
+	public String viewTutorial(Tutorial tutorial) {
+		
+		return "redirect:/AdminDashboard";
+	}
 
 }

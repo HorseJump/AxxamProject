@@ -3,7 +3,7 @@
 
 <html>
 <head>
-	<title>Axxam Tmusni</title>
+	<title>Axxam Tmusni: Create a Tutorial</title>
 	<meta charset="utf-8" /> 
 	<!-- Adds bootstrap library -->
 	<c:url value="/css/bootstrap.min.css" var="bootstrapUrl" />
@@ -21,6 +21,6 @@
 	<script src="js/createTutorial.js"></script>
 </head>
 	<body>
-		
+		Tutorial Dashboard
 	</body>
 </html>

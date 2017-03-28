@@ -32,6 +32,8 @@
 				<li><a href="${aboutURL}">About Us</a></li>
 				<c:url value="/login" var="loginURL"/>
 				<li><a href="${loginURL}">User Login</a></li>
+				<c:url value="/TutorialDashboard" var="tutorialDash"/>
+				<li><a href="${tutorialDash}">Tutorial Dashboard</a></li>
 			</ul>
 		</div>
 		<div id="adminLink">

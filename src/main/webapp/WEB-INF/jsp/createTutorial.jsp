@@ -41,7 +41,6 @@
 			
 			<h2>Content</h2>
 			<div class="content">
-				<!-- Add content with Javascript here -->
 				<textarea name="tutorialContent" class="contentBox"></textarea>
 			</div>
 				<!-- <button type="button" class="btn btn-success" id="addContent">Add Written Content +</button>
